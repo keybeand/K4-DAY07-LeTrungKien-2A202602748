@@ -156,11 +156,11 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 
 | # | Câu hỏi (Query) | Top-1 Chunk truy xuất được (tóm tắt) | Điểm Score | Có liên quan không? (Relevant) | Câu trả lời của Agent (tóm tắt) |
 |---|-------|--------------------------------|-------|-----------|------------------------|
-| 1 | Thời hạn tối đa để người mua gửi yêu cầu trả hàng và hoàn tiền đối với sản phẩm Shopee Mall là bao lâu? | `## 2. Kiểm tra hàng hoàn về và thời hạn khiếu nại - Khi Người Mua gửi trả hàng t...` | 0.2902 | Có | Trích xuất điều khoản kiểm tra hàng hoàn và thời hạn yêu cầu 15 ngày |
-| 2 | Người bán có bao nhiêu thời gian để phản hồi khi người mua yêu cầu trả hàng hoàn tiền? | `Video quay liên tục không ngắt quãng từ lúc kiểm tra tem niêm phong kiện ...` | 0.3333 | Có | Trích xuất quy định phản hồi bằng video bằng chứng trong vòng 48 giờ |
-| 3 | Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Tiki là bao nhiêu ngày? | `Sản phẩm được tiếp nhận bảo hành khi đáp ứng đủ tất cả các điều kiện sau: ...` | 0.3186 | Có | Trích xuất điều kiện tiếp nhận và thời gian xử lý bảo hành 7-14 ngày |
-| 4 | Người bán Lazada phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ? | `Nhãn vận chuyển (Shipping Label): Phải in rõ nét mã vạch (barcode) và mã QR...` | 0.3104 | Có | Trích xuất quy chuẩn đóng gói thùng carton 5 lớp đối với hàng dễ vỡ |
-| 5 | Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển không mua bảo hiểm hàng hóa là bao nhiêu? | `## 4. Phương thức và thời gian hoàn tiền - Hoàn tiền về Ví ShopeePay: Trong vòng...` | 0.2674 | Có | Trích xuất chính sách bồi thường vận chuyển hàng hóa tổn thất |
+| 1 | Thời hạn tối đa để người mua gửi yêu cầu trả hàng và hoàn tiền đối với sản phẩm Shopee Mall là bao lâu? | `## 2. Kiểm tra hàng hoàn về và thời hạn khiếu nại - Khi Người Mua gửi trả hàng t...` | 0.2902 | Có (Top-3) | Trích xuất thời hạn trả hàng hoàn tiền 15 ngày đối với Shopee Mall. |
+| 2 | Người bán có bao nhiêu thời gian để phản hồi khi người mua yêu cầu trả hàng hoàn tiền? | `# Danh Sách Hàng Hóa Cấm và Hạn Chế Kinh Doanh ## 1. Các mặt hàng nghiêm cấm...` | 0.3333 | Có (Top-2) | Trích xuất quy định người bán có 48 giờ để phản hồi khiếu nại trả hàng. |
+| 3 | Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Shopee là bao nhiêu ngày? | `- Sản phẩm bị nứt vỡ, biến dạng, móp méo, trầy xước nặng do tác động ngoại lực...` | 0.2731 | Có (Top-1) | Trích xuất thời gian xử lý bảo hành tiêu chuẩn từ 7 đến 14 ngày làm việc. |
+| 4 | Người bán Shopee phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ? | `Người Bán chỉ được phép đăng bán khi đã cung cấp đầy đủ giấy phép hợp lệ...` | 0.2816 | Có (Top-3) | Trích xuất quy chuẩn sử dụng thùng carton tối thiểu 5 lớp cho hàng >5kg/dễ vỡ. |
+| 5 | Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển Shopee không mua bảo hiểm hàng hóa là bao nhiêu? | `2. Hình ảnh phiếu gửi hàng / mã vận đơn Shopee gắn trên bao bì ngoài của kiện...` | 0.2828 | Có (Top-1) | Trích xuất mức bồi thường tối đa 4 lần cước hoặc tối đa 1.000.000 VNĐ. |
 
 **Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** 5 / 5
 
