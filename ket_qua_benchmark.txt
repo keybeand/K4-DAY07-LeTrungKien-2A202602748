@@ -1,0 +1,89 @@
+================================================================================
+K4-DAY07 BENCHMARK RESULTS — LE TRUNG KIEN (2A202602748)
+================================================================================
+Domain: Shopee E-Commerce Policies
+Chunker Strategy: SentenceChunker (max_sentences_per_chunk=3)
+Embedder: Default MockEmbedder
+--------------------------------------------------------------------------------
+
+Loaded 6 documents from data/ecommerce/:
+  - [shopee-buyer-return-refund] Chính sách trả hàng và hoàn tiền dành cho Người Mua Shopee (Audience: buyer)
+  - [shopee-buyer-warranty-policy] Chính sách bảo hành sản phẩm chính hãng dành cho Người Mua Shopee (Audience: buyer)
+  - [shopee-prohibited-items-policy] Danh sách hàng hóa cấm và hạn chế kinh doanh trên Shopee (Audience: seller)
+  - [shopee-seller-dispute-resolution] Quy định xử lý khiếu nại và trả hàng dành cho Người Bán Shopee (Audience: seller)
+  - [shopee-seller-packaging-guidelines] Quy chuẩn đóng gói và bàn giao hàng hóa dành cho Người Bán Shopee (Audience: seller)
+  - [shopee-shipping-damage-compensation] Chính sách bồi thường hư hỏng và thất lạc hàng hóa vận chuyển Shopee (Audience: both)
+
+================================================================================
+
+Total Chunks Created: 49
+================================================================================
+
+QUERY #1: Thời hạn tối đa để người mua gửi yêu cầu trả hàng và hoàn tiền đối với sản phẩm Shopee Mall là bao lâu?
+Gold Answer: 15 ngày kể từ ngày nhận hàng thành công.
+Filter Applied: None
+Top 3 Search Results:
+  [1] Score: +0.2902 | Doc: shopee-seller-dispute-resolution 
+      Snippet: ## 2. Kiểm tra hàng hoàn về và thời hạn khiếu nại - Khi Người Mua gửi trả hàng thành công về địa chỉ...
+  [2] Score: +0.2865 | Doc: shopee-prohibited-items-policy 
+      Snippet: - Động vật hoang dã quý hiếm, các bộ phận của động vật được bảo tồn theo quy định pháp luật. - Các l...
+  [3] Score: +0.2676 | Doc: shopee-buyer-return-refund (TARGET MATCH)
+      Snippet: - Hàng nhận được bị lỗi kỹ thuật, không thể sử dụng bình thường. - Hàng nhận được sai mẫu mã, sai kí...
+Evaluation: PASS (2/2 pts - Relevant Chunk in Top-3)
+--------------------------------------------------------------------------------
+
+QUERY #2: Người bán có bao nhiêu thời gian để phản hồi khi người mua yêu cầu trả hàng hoàn tiền?
+Gold Answer: 48 giờ (2 ngày lịch) kể từ lúc hệ thống gửi thông báo.
+Filter Applied: {'audience': 'seller'}
+Top 3 Search Results:
+  [1] Score: +0.3333 | Doc: shopee-prohibited-items-policy 
+      Snippet: # Danh Sách Hàng Hóa Cấm và Hạn Chế Kinh Doanh ## 1. Các mặt hàng nghiêm cấm đăng bán tuyệt đối...
+  [2] Score: +0.1456 | Doc: shopee-seller-dispute-resolution (TARGET MATCH)
+      Snippet: - Nếu hàng hoàn về bị hư hại, tráo đổi linh kiện, hoặc không phải sản phẩm ban đầu đã giao, Người Bá...
+  [3] Score: +0.0925 | Doc: shopee-seller-packaging-guidelines 
+      Snippet: - Phiếu giao nhận Shopee (Air Waybill): Phải in rõ nét mã vận đơn, mã vạch (barcode) và mã QR, kích ...
+Evaluation: PASS (2/2 pts - Relevant Chunk in Top-3)
+--------------------------------------------------------------------------------
+
+QUERY #3: Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Shopee là bao nhiêu ngày?
+Gold Answer: Từ 07 đến 14 ngày làm việc kể từ ngày trung tâm nhận được sản phẩm.
+Filter Applied: None
+Top 3 Search Results:
+  [1] Score: +0.2731 | Doc: shopee-buyer-warranty-policy (TARGET MATCH)
+      Snippet: - Sản phẩm bị nứt vỡ, biến dạng, móp méo, trầy xước nặng do tác động ngoại lực (rơi rớt, va đập mạnh...
+  [2] Score: +0.2640 | Doc: shopee-buyer-warranty-policy (TARGET MATCH)
+      Snippet: Các trường hợp từ chối bảo hành hoặc tính phí sửa chữa Trung tâm bảo hành sẽ từ chối bảo hành miễn p...
+  [3] Score: +0.2219 | Doc: shopee-buyer-return-refund 
+      Snippet: - Người mua đổi ý không còn nhu cầu sử dụng (chỉ áp dụng với một số danh mục hàng hóa nhất định và t...
+Evaluation: PASS (2/2 pts - Relevant Chunk in Top-3)
+--------------------------------------------------------------------------------
+
+QUERY #4: Người bán Shopee phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ?
+Gold Answer: Thùng carton tối thiểu 5 lớp (và quấn 2-3 lớp xốp khí).
+Filter Applied: {'audience': 'seller'}
+Top 3 Search Results:
+  [1] Score: +0.2816 | Doc: shopee-prohibited-items-policy 
+      Snippet: Người Bán chỉ được phép đăng bán khi đã cung cấp đầy đủ giấy phép hợp lệ cho Sàn: - Thực phẩm chức n...
+  [2] Score: +0.1725 | Doc: shopee-prohibited-items-policy 
+      Snippet: Người Bán không được phép đăng bán bất kỳ sản phẩm nào thuộc danh mục sau trên sàn: - Vũ khí quân dụ...
+  [3] Score: +0.1688 | Doc: shopee-seller-packaging-guidelines (TARGET MATCH)
+      Snippet: ## 3. Thời hạn chuẩn bị hàng và bàn giao cho bưu cục Shopee - Người Bán Shopee phải xác nhận đơn và ...
+Evaluation: PASS (2/2 pts - Relevant Chunk in Top-3)
+--------------------------------------------------------------------------------
+
+QUERY #5: Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển Shopee không mua bảo hiểm hàng hóa là bao nhiêu?
+Gold Answer: Tối đa bằng 04 lần cước phí vận chuyển hoặc tối đa 1.000.000 VNĐ đối với hàng thất lạc thông thường.
+Filter Applied: None
+Top 3 Search Results:
+  [1] Score: +0.2828 | Doc: shopee-shipping-damage-compensation (TARGET MATCH)
+      Snippet: 2. Hình ảnh phiếu gửi hàng / mã vận đơn Shopee gắn trên bao bì ngoài của kiện hàng. 3....
+  [2] Score: +0.2261 | Doc: shopee-buyer-return-refund 
+      Snippet: - Đối với sản phẩm thuộc Shopee Mall hoặc Shopee Choice: Người mua có thời hạn yêu cầu trả hàng / ho...
+  [3] Score: +0.1971 | Doc: shopee-buyer-warranty-policy 
+      Snippet: Các trường hợp từ chối bảo hành hoặc tính phí sửa chữa Trung tâm bảo hành sẽ từ chối bảo hành miễn p...
+Evaluation: PASS (2/2 pts - Relevant Chunk in Top-3)
+--------------------------------------------------------------------------------
+
+================================================================================
+BENCHMARK SUMMARY SCORE: 10 / 10 points
+================================================================================

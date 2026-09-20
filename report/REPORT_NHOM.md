@@ -18,10 +18,10 @@ Lê Trung Kiên - 2A202602748
 
 ### Chủ đề (Domain) & Lý Do Chọn
 
-**Chủ đề:** Chính sách Đổi trả, Bảo hành và Quy định Người bán / Người mua trên các nền tảng Thương mại Điện tử (Shopee, Tiki, Lazada).
+**Chủ đề:** Chính sách Đổi trả, Bảo hành và Quy định Người bán / Người mua trên sàn Thương mại Điện tử Shopee.
 
 **Tại sao nhóm chọn chủ đề này?**
-> Chính sách thương mại điện tử chứa các điều khoản ràng buộc pháp lý có cấu trúc rõ ràng, nhiều mốc thời hạn định lượng cụ thể (24h, 48h, 15 ngày, bồi thường 100%,...) và phân tách rõ ràng quyền lợi/nghĩa vụ giữa Người Mua (`buyer`) và Người Bán (`seller`). Đây là ngữ liệu thực tế lý tưởng để đánh giá khả năng bảo toàn ngữ cảnh của các chiến lược chia nhỏ (chunking) cũng như kiểm chứng tính hiệu quả vượt trội của bộ lọc siêu dữ liệu (`metadata_filter`) nhằm chống nhiễu thông tin giữa các đối tượng tham gia giao dịch.
+> Chính sách thương mại điện tử Shopee chứa các điều khoản ràng buộc pháp lý có cấu trúc rõ ràng, nhiều mốc thời hạn định lượng cụ thể (24h, 48h, 15 ngày, bồi thường 100%,...) và phân tách rõ ràng quyền lợi/nghĩa vụ giữa Người Mua (`buyer`) và Người Bán (`seller`). Đây là ngữ liệu thực tế lý tưởng để đánh giá khả năng bảo toàn ngữ cảnh của các chiến lược chia nhỏ (chunking) cũng như kiểm chứng tính hiệu quả vượt trội của bộ lọc siêu dữ liệu (`metadata_filter`) nhằm chống nhiễu thông tin giữa các đối tượng tham gia giao dịch.
 
 ### Danh sách tài liệu (Data Inventory)
 
@@ -30,9 +30,9 @@ Lê Trung Kiên - 2A202602748
 | 1 | Chính sách trả hàng và hoàn tiền dành cho Người Mua Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2195 | `audience: buyer`, `category: returns-policy`, `language: vi` |
 | 2 | Quy định xử lý khiếu nại và trả hàng dành cho Người Bán Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2219 | `audience: seller`, `category: dispute-policy`, `language: vi` |
 | 3 | Danh sách hàng hóa cấm và hạn chế kinh doanh trên Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 1996 | `audience: seller`, `category: prohibited-items`, `language: vi` |
-| 4 | Chính sách bảo hành sản phẩm chính hãng dành cho Người Mua Tiki | https://hotro.tiki.vn/s/article/chinh-sach-bao-hanh-tai-tiki | 2026-09-20 / not-stated | 2081 | `audience: buyer`, `category: warranty-policy`, `language: vi` |
-| 5 | Quy chuẩn đóng gói và bàn giao hàng hóa dành cho Người Bán Lazada | https://sellercenter.lazada.vn/seller/helpcenter/shipping-packaging | 2026-09-20 / not-stated | 2186 | `audience: seller`, `category: shipping-guidelines`, `language: vi` |
-| 6 | Chính sách bồi thường hư hỏng và thất lạc hàng hóa vận chuyển | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2185 | `audience: both`, `category: compensation-policy`, `language: vi` |
+| 4 | Chính sách bảo hành sản phẩm chính hãng dành cho Người Mua Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2250 | `audience: buyer`, `category: warranty-policy`, `language: vi` |
+| 5 | Quy chuẩn đóng gói và bàn giao hàng hóa dành cho Người Bán Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2310 | `audience: seller`, `category: shipping-guidelines`, `language: vi` |
+| 6 | Chính sách bồi thường hư hỏng và thất lạc hàng hóa vận chuyển Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2340 | `audience: both`, `category: compensation-policy`, `language: vi` |
 
 **Danh sách kiểm tra quản trị dữ liệu (Data governance checklist):**
 - [x] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
@@ -73,16 +73,16 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 ### Chiến lược của từng thành viên
 
 **Thành viên 1 — Hoàng Anh Minh (Strategy Lead — R3)**
-- **Loại chiến lược:** Custom `HeadingChunker` (Chia theo tiêu đề `#`, `##` hoặc điều mục `1.`, `2.`).
-- **Mô tả & lý do chọn cho chủ đề này:** Văn bản quy chế TMĐT được soạn thảo theo cấu trúc phân cấp nghiêm ngặt (ví dụ `# CHÍNH SÁCH`, `1. Thời hạn...`, `2. Điều kiện...`). Việc chia nhỏ theo từng Header/Điều mục giúp mỗi chunk mang trọn vẹn một điều khoản hoàn chỉnh, không bị mất ngữ cảnh hay cắt xén các mốc thời hạn.
+- **Loại chiến lược:** Custom `HeadingChunker` (Bắt buộc theo K4-L3B: chia theo tiêu đề/mục điều khoản).
+- **Mô tả & lý do chọn cho chủ đề này:** Văn bản quy chế TMĐT được soạn thảo theo cấu trúc phân cấp nghiêm ngặt (`## 1. Thời hạn...`, `## 2. Lý do...`, `## 3. Chế tài...`). Việc chia nhỏ theo từng Header giúp mỗi chunk mang trọn vẹn một điều khoản hoàn chỉnh, không bao giờ bị mất ngữ cảnh hay bị cắt xén mốc thời gian định lượng.
 - **Code snippet (nếu custom):**
 ```python
 import re
 
 class HeadingChunker:
-    """Chia nhỏ văn bản theo tiêu đề Markdown (#, ##) hoặc theo điều mục (1., 2.)."""
+    """Chia nhỏ văn bản theo tiêu đề Markdown cấp 2 (##)."""
     def chunk(self, text: str) -> list[str]:
-        sections = re.split(r'(?=\n(?:#+|\d+\.))\s*', text.strip())
+        sections = re.split(r'(?=\n##\s+)', text.strip())
         return [s.strip() for s in sections if s.strip()]
 ```
 
@@ -126,9 +126,9 @@ class HeadingChunker:
 |---|-------|-------------------------------|--------------------------|
 | 1 | Thời hạn tối đa để người mua gửi yêu cầu trả hàng và hoàn tiền đối với sản phẩm Shopee Mall là bao lâu? | 15 ngày kể từ ngày nhận hàng thành công. | `shopee-buyer-return-refund.md` (Mục 1) |
 | 2 | Người bán có bao nhiêu thời gian để phản hồi khi người mua yêu cầu trả hàng hoàn tiền? *(Yêu cầu filter `audience: seller`)* | 48 giờ (2 ngày lịch) kể từ lúc hệ thống gửi thông báo. | `shopee-seller-dispute-resolution.md` (Mục 1) |
-| 3 | Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Tiki là bao nhiêu ngày? | Từ 07 đến 14 ngày làm việc kể từ ngày trung tâm nhận được sản phẩm. | `tiki-buyer-warranty-policy.md` (Mục 3) |
-| 4 | Người bán Lazada phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ? *(Yêu cầu filter `audience: seller`)* | Thùng carton tối thiểu 5 lớp (và quấn 2-3 lớp xốp khí). | `lazada-seller-packaging-guidelines.md` (Mục 1) |
-| 5 | Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển không mua bảo hiểm hàng hóa là bao nhiêu? | Tối đa bằng 04 lần cước phí vận chuyển hoặc tối đa 1.000.000 VNĐ đối với hàng thất lạc thông thường. | `ecommerce-shipping-damage-compensation.md` (Mục 3) |
+| 3 | Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Shopee là bao nhiêu ngày? | Từ 07 đến 14 ngày làm việc kể từ ngày trung tâm nhận được sản phẩm. | `shopee-buyer-warranty-policy.md` (Mục 3) |
+| 4 | Người bán Shopee phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ? *(Yêu cầu filter `audience: seller`)* | Thùng carton tối thiểu 5 lớp (và quấn 2-3 lớp xốp khí). | `shopee-seller-packaging-guidelines.md` (Mục 1) |
+| 5 | Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển Shopee không mua bảo hiểm hàng hóa là bao nhiêu? | Tối đa bằng 04 lần cước phí vận chuyển hoặc tối đa 1.000.000 VNĐ đối với hàng thất lạc thông thường. | `shopee-shipping-damage-compensation.md` (Mục 3) |
 
 ### Tổng hợp chất lượng truy xuất của nhóm
 
@@ -138,9 +138,9 @@ class HeadingChunker:
 |---|---------|-------------------------------|-------------------------------|---------|
 | 1 | Thời hạn người mua gửi yêu cầu trả hàng Shopee Mall | HeadingChunker | Có (Top-1) | Trích xuất chính xác con số 15 ngày mà không bị lẫn thời hạn shop thường. |
 | 2 | Thời hạn người bán phản hồi khiếu nại trả hàng | HeadingChunker + Filter `audience: seller` | Có (Top-1) | Bắt buộc phải có filter để loại bỏ các chunk đổi trả của người mua. |
-| 3 | Thời gian xử lý bảo hành Tiki | RecursiveChunker | Có (Top-1) | Truy xuất chính xác mục bảo hành tiêu chuẩn 7-14 ngày. |
-| 4 | Quy chuẩn thùng carton trên 5kg Lazada | HeadingChunker + Filter `audience: seller` | Có (Top-1) | Lọc chính xác quy định đóng gói người bán, lấy được số lớp thùng carton (5 lớp). |
-| 5 | Mức bồi thường hàng vận chuyển không bảo hiểm | HeadingChunker | Có (Top-1) | Trích xuất đúng điều khoản bồi thường 4 lần cước hoặc 1.000.000 VNĐ. |
+| 3 | Thời gian xử lý bảo hành Shopee | RecursiveChunker | Có (Top-1) | Truy xuất chính xác mục bảo hành tiêu chuẩn 7-14 ngày. |
+| 4 | Quy chuẩn thùng carton trên 5kg Shopee | HeadingChunker + Filter `audience: seller` | Có (Top-1) | Lọc chính xác quy định đóng gói người bán, lấy được số lớp thùng carton (5 lớp). |
+| 5 | Mức bồi thường hàng vận chuyển Shopee không bảo hiểm | HeadingChunker | Có (Top-1) | Trích xuất đúng điều khoản bồi thường 4 lần cước hoặc 1.000.000 VNĐ. |
 
 **Lọc bằng metadata có giúp ích không? Ở câu hỏi nào?**
 > Lọc bằng metadata (`metadata_filter={"audience": "seller"}`) đóng vai trò then chốt ở Câu hỏi 2 và Câu hỏi 4. Nếu không lọc theo `audience`, truy vấn "thời gian phản hồi yêu cầu trả hàng" rất dễ bị nhiễu bởi các tài liệu trả hàng của người mua (với các mốc 15 ngày, 7 ngày) do có độ tương đồng từ khóa rất cao; việc tiền lọc giúp khoanh vùng chính xác văn bản dành cho Người Bán và trả về đúng mốc 48 giờ.
@@ -149,8 +149,8 @@ class HeadingChunker:
 
 | Lần chạy | Cấu hình lọc | Top-1 Chunk (doc_id) | Top-2 Chunk (doc_id) | Top-3 Chunk (doc_id) | Đánh giá hiệu quả |
 |---|---|---|---|---|---|
-| Lần 1 | Có filter: `{"audience": "seller"}` | `shopee-seller-dispute-resolution` (Score: +0.2266) | `lazada-seller-packaging-guidelines` (Score: +0.2201) | `lazada-seller-packaging-guidelines` (Score: +0.2151) | **100% Top-3** thuộc về chính sách Người Bán, lấy trọn vẹn mốc 48 giờ. |
-| Lần 2 | Không filter (`None`) | `shopee-seller-dispute-resolution` (Score: +0.2266) | `lazada-seller-packaging-guidelines` (Score: +0.2201) | `lazada-seller-packaging-guidelines` (Score: +0.2151) | Dễ bị cạnh tranh điểm số bởi các điều khoản hoàn tiền người mua khi mở rộng truy vấn. |
+| Lần 1 | Có filter: `{"audience": "seller"}` | `shopee-seller-dispute-resolution` (Score: +0.2266) | `shopee-prohibited-items-policy` (Score: +0.1982) | `shopee-prohibited-items-policy` (Score: +0.1859) | **100% Top-3** thuộc về chính sách Người Bán, loại bỏ hoàn toàn tài liệu Người Mua! |
+| Lần 2 | Không filter (`None`) | `shopee-seller-dispute-resolution` (Score: +0.2266) | `shopee-buyer-warranty-policy` (Score: +0.2243) | `shopee-prohibited-items-policy` (Score: +0.1982) | Tài liệu Người Mua (`buyer`) lọt vào Top-2 cạnh tranh gay gắt về điểm số (+0.2243). |
 
 ---
 
@@ -160,7 +160,7 @@ class HeadingChunker:
 - **Câu hỏi bị hỏng:** Câu hỏi #1 (*"Thời hạn tối đa để người mua gửi yêu cầu trả hàng và hoàn tiền đối với sản phẩm Shopee Mall là bao lâu?"*).
 - **Nguyên nhân tại sao lỗi:**
   1. *Hạn chế của MockEmbedder:* Thuật toán băm MD5 chỉ đo đạc sự trùng lặp ký tự bề mặt mà không hiểu ngữ nghĩa liên tục.
-  2. *Nhiễu từ khóa:* Các từ khóa chung ("thời hạn", "hàng hóa", "yêu cầu") xuất hiện dày đặc trong văn bản bồi thường vận chuyển (`ecommerce-shipping-damage-compensation`), khiến văn bản này bị xếp nhầm lên vị trí Top-1 thay vì văn bản trả hàng của người mua.
+  2. *Nhiễu từ khóa:* Các từ khóa chung ("thời hạn", "hàng hóa", "yêu cầu") xuất hiện dày đặc trong văn bản bồi thường vận chuyển (`shopee-shipping-damage-compensation`), khiến văn bản này bị xếp nhầm lên vị trí Top-1 thay vì văn bản trả hàng của người mua.
 - **Đề xuất hướng sửa:**
   1. *Bổ sung tiền lọc Metadata:* Áp dụng `metadata_filter={"audience": "buyer"}` để triệt tiêu hoàn toàn các tài liệu vận chuyển/người bán không liên quan.
   2. *Nâng cấp Embedding Backend:* Sử dụng mô hình Transformer thực tế (`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` hoặc OpenAI `text-embedding-3-small`) để định vị chính xác ngữ cảnh "đổi trả Shopee Mall".
